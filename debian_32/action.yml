@@ -1,0 +1,32 @@
+name: 'Construir deb32 bits'
+description: 'Construye artefactos y los sube a upload.sh'
+inputs:
+  repositorio:
+    description: 'Nombre del repositorio del cual se va a construir los artefactos'
+    required: true
+  nombre:
+    description: 'Nombre del binario al cual empaquetar'
+    required: true
+  rama:
+    description: 'Nombre de la rama del cual se va a construir los artefactos'
+    required: true
+    default: 'main'
+  ruta-control:
+    description: 'La ruta en donde se encuentra el archivo control (datos para empaquetar deb)'
+    required: true
+    default: 'build/control'
+  ruta-script:
+    description: 'Ruta en donde se encuentra el script en caso de necesitarlo para colocar los archivos en lugar'
+    required: false
+outputs:
+  link:
+    description: 'Link de donde se alojara el binario en upload.sh'
+runs:
+  using: 'docker'
+  image: 'docker://kedap55/poa:debian'
+  args:
+    - ${{ inputs.repositorio }}
+    - ${{ inputs.nombre }}
+    - ${{ inputs.rama }}
+    - ${{ inputs.ruta-control }}
+    - ${{ inputs.ruta-script }}
