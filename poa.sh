@@ -41,7 +41,7 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 echo "Coping the control file"
-cp $4 $2/DEBIAN
+cp $4 $2/DEBIAN/control
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
