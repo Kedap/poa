@@ -1,6 +1,10 @@
 name: 'Construir deb'
 description: 'Construye artefactos y los sube a upload.sh'
 inputs:
+  plataforma:
+    description: 'Puede ver los contenedores de docker que tenemos disponibles'
+    required: true
+    default: 'debian'
   repositorio:
     description: 'Nombre del repositorio del cual se va a construir los artefactos'
     required: true
@@ -23,7 +27,7 @@ outputs:
     description: 'Link de donde se alojara el binario en upload.sh'
 runs:
   using: 'docker'
-  image: 'docker://kedap55/poa:debian'
+  image: 'docker://kedap55/poa:${{ inputs.plataforma }}'
   args:
     - ${{ inputs.repositorio }}
     - ${{ inputs.nombre }}
