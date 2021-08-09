@@ -20,7 +20,7 @@ outputs:
     description: 'Link de donde se alojara el binario en upload.sh'
 runs:
   using: 'docker'
-  image: 'docker://kedap55/poa:debian'
+  image: 'docker://kedap55/poa:archlinux'
   args:
     - ${{ inputs.repositorio }}
     - ${{ inputs.nombre }}
