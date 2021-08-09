@@ -57,13 +57,13 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 echo "Coping binary"
-mv ~/rpmbuild/RPMS/x86_64/$2-$4-1.fc34.x86_64.rpm .
+mv ~/rpmbuild/RPMS/x86_64/$2-$4-*.fc34.x86_64.rpm .
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
 fi
 echo "Upload binary..."
-curl -o link.txt --upload-file ./$2-$4-1.fc34.x86_64.rpm https://transfer.sh
+curl -o link.txt --upload-file ./$2-$4-*.fc34.x86_64.rpm https://transfer.sh
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
