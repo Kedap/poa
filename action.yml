@@ -1,0 +1,27 @@
+name: 'Construir rpm'
+description: 'Construye artefactos y los sube a upload.sh'
+inputs:
+  repositorio:
+    description: 'Nombre del repositorio del cual se va a construir los artefactos'
+    required: true
+  nombre:
+    description: 'Nombre del binario al cual empaquetar'
+    required: true
+  ruta-spec:
+    description: 'La ruta en donde se encuentra el archivo control (datos para empaquetar rpm)'
+    required: true
+    default: 'build/fedora.spec'
+  version:
+    description: 'Ruta en donde se encuentra el script en caso de necesitarlo para colocar los archivos en lugar'
+    required: false
+outputs:
+  link:
+    description: 'Link de donde se alojara el binario en upload.sh'
+runs:
+  using: 'docker'
+  image: 'docker://kedap55/poa:fedora'
+  args:
+    - ${{ inputs.repositorio }}
+    - ${{ inputs.nombre }}
+    - ${{ inputs.ruta-spec }}
+    - ${{ inputs.version }}
