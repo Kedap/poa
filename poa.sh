@@ -17,10 +17,7 @@ makepkg --version
 git --version
 curl --version
 echo "Cloning the repository $1"
-cd ~
-whoami
-ls
-pwd
+cd /home/$(whoami)
 git clone https://github.com/$1.git
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
