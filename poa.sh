@@ -10,12 +10,6 @@ echo "+++++++++++++++++++++++++"
 echo "+ packager of apmpkg APK+"
 echo "+++++++++++++++++++++++++"
 echo
-echo "Print info"
-uname -a
-rustc -V
-abuild -V
-git --version
-curl --version
 echo "Set path"
 HOME=/home/$(whoami)
 echo "home = $HOME"
@@ -23,6 +17,18 @@ if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
 fi
+echo "Using path for rust"
+source $HOME/.cargo/env
+if [[ $? -ne 0 ]]; then
+  echo "Oops... A error"
+  exit 1
+fi
+echo "Print info"
+uname -a
+rustc -V
+abuild -V
+git --version
+curl --version
 echo "Entry in the directory"
 cd $HOME
 if [[ $? -ne 0 ]]; then
