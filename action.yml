@@ -13,7 +13,10 @@ inputs:
     default: 'build/fedora.spec'
   version:
     description: 'Ruta en donde se encuentra el script en caso de necesitarlo para colocar los archivos en lugar'
-    required: false
+    required: true
+  rama:
+    description: 'Especifique la rama de donde se quiere construir el paquete'
+    required: true
 outputs:
   link:
     description: 'Link de donde se alojara el binario en upload.sh'
@@ -25,3 +28,4 @@ runs:
     - ${{ inputs.nombre }}
     - ${{ inputs.ruta-spec }}
     - ${{ inputs.version }}
+    - ${{ inputs.rama }}
