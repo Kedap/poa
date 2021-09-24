@@ -48,6 +48,12 @@ if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
 fi
+echo "Update pacman database"
+sudo pacman -Sy --noconfirm
+if [[ $? -ne 0 ]]; then
+  echo "Oops... A error"
+  exit 1
+fi
 echo "Build binary"
 makepkg -s --noconfirm
 if [[ $? -ne 0 ]]; then
