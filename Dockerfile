@@ -1,4 +1,4 @@
-FROM rust:1.54.0-slim-buster
+FROM rust:slim-buster
 WORKDIR /app
 COPY install_apmpkg.sh .
 RUN ./install_apmpkg.sh
