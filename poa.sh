@@ -49,7 +49,7 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 echo "Build binary"
-makepkg
+makepkg -s --noconfirm
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
