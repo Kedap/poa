@@ -3,7 +3,7 @@
 
 if [[ $1 == "--help" ]]; then
  echo "Using:"
- echo "poa repository name path_for_spec version"
+ echo "poa repository name path_for_spec version branch"
  exit 1
 fi
 echo "++++++++++++++++++++++++++++"
@@ -16,6 +16,19 @@ rustc -V
 curl --version
 echo "Cloning repository $1"
 git clone https://github.com/$1.git
+if [[ $? -ne 0 ]]; then
+  echo "Oops... A error"
+  exit 1
+fi
+echo "Selecting the branch $5"
+cd $2
+git checkout $5
+if [[ $? -ne 0 ]]; then
+  echo "Oops... A error"
+  exit 1
+fi
+echo "Outing of repo"
+cd ..
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
@@ -39,13 +52,19 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 echo "Creating tar file"
-tar -czf $2.tar.gz $2-$4
+tar -czf $4.tar.gz $2-$4
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
 fi
 echo "Coping tarball"
-cp $2.tar.gz ~/rpmbuild/SOURCES
+cp $4.tar.gz ~/rpmbuild/SOURCES
+if [[ $? -ne 0 ]]; then
+  echo "Oops... A error"
+  exit 1
+fi
+echo "Installing depencies"
+dnf install openssl-devel -y
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
