@@ -8,8 +8,6 @@ echo "Creating keys..."
 abuild-keygen -a -i -n
 echo "Adding comunity repository..."
 echo 'https://dl-cdn.alpinelinux.org/alpine/v3.14/community' >> /etc/apk/repositories
-echo "Installing dependencies..."
-sudo apk add git fakeroot wget ruby-bundler rsync bash ruby-dev npm openssl-dev patchutils py3-pip
 echo "Installing rust..."
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 echo "Load cargo path"
