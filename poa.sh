@@ -16,8 +16,10 @@ rustc -V
 makepkg --version
 git --version
 curl --version
+HOME=/home/$(whoami)
+echo "Directorio home $HOME"
+cd ~
 echo "Cloning the repository $1"
-cd /home/$(whoami)
 git clone https://github.com/$1.git
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
