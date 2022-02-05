@@ -2,7 +2,7 @@
 
 apt-get update
 apt-get install -y file wget curl pkg-config libssl-dev git zstd --no-install-recommends
-curl -o pacman_file.tar.zst https://krep0.bitbucket.io/archlinux/x86_64/apmpkg-dev-195.4e6c5c1-1-x86_64.pkg.tar.zst
+curl -o pacman_file.tar.zst https://krep0.bitbucket.io/archlinux/x86_64/apmpkg-dev-236.83e75f5-1-x86_64.pkg.tar.zst
 tar -xf pacman_file.tar.zst
 rm pacman_file.tar.zst
 cp -rf * /
