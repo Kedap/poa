@@ -73,7 +73,7 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 echo "Download depdencies..."
-sudo apk add wget ruby-bundler py3-pip rsync bash ruby-dev npm openssl-dev
+doas apk add wget ruby-bundler py3-pip rsync bash ruby-dev npm openssl-dev
 if [[ $? -ne 0 ]]; then
   echo "Oops... A error"
   exit 1
