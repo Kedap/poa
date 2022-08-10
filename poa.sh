@@ -1,5 +1,5 @@
 #!/bin/sh -l
-# poa user repository branch path_for_control script_for_creating_deb
+# poa repository name branch pahto_for_APKGBUILD_file
 
 if [[ $1 == "--help" ]]; then
  echo "Using:"
